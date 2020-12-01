@@ -12,6 +12,7 @@ export interface Properties {
     "zoomControlScale"?: number;
     "backgroundColor"?: string;
     "limitPan"?: boolean;
+    "allowScroll"?: boolean;
     "minPanScale"?: number;
     "minScale"?: number;
     "eventHandler"?: any;

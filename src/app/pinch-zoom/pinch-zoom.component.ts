@@ -45,6 +45,7 @@ export class PinchZoomComponent implements OnDestroy {
     @Input() autoHeight: boolean = false;
     @Input() wheelZoomFactor: number = 0.2;
     @Input() draggableImage: boolean = false;
+    @Input() allowScroll: boolean = false;
 
     @HostBinding('style.overflow')
     get hostOverflow() {

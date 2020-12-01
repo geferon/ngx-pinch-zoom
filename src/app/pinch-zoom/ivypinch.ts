@@ -11,6 +11,7 @@ export interface IvyPinchProperties {
     limitZoom ? : number | "original image size";
     disablePan ? : boolean;
     limitPan ? : boolean;
+    allowScroll ? : boolean;
     minPanScale ? : number;
     minScale ? : number;
     eventHandler ? : any;
@@ -138,7 +139,7 @@ export class IvyPinch {
             }
 
             // Align image
-            if (this.eventType === 'pinch' || 
+            if (this.eventType === 'pinch' ||
                 this.eventType === 'pan' && this.scale > this.properties.minPanScale) {
 
                 this.alignImage();
@@ -178,7 +179,9 @@ export class IvyPinch {
             return;
         }
 
-        event.preventDefault();
+        if (!this.properties.allowScroll) {
+          event.preventDefault();
+        }
         const {
             clientX,
             clientY
